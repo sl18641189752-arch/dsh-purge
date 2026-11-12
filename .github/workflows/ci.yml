@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 语法检查
+        run: bash -n purge.sh install.sh
+      - name: shellcheck
+        run: |
+          brew install shellcheck
+          shellcheck -S warning purge.sh install.sh
+      - name: 自检（dry-run 不应删除任何文件）
+        run: ./purge.sh --dry-run --tier abc
