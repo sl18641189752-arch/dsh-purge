@@ -26,7 +26,7 @@
 ## 安装
 
 ```bash
-git clone https://github.com/<you>/dsh-purge.git
+git clone https://github.com/sl18641189752-arch/dsh-purge.git
 cd dsh-purge
 chmod +x purge.sh install.sh
 ./install.sh                 # 每周日 03:00 自动清理 A+B
